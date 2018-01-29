@@ -36,12 +36,12 @@ public class WeatherApiService {
     @Cacheable(value = "weather", key = "#uri", unless = "#result.status != 1000")
     public WeatherResponse getWeather(String uri) {
 
-        log.info("请求进来了");
+        log.info("uri是：{}", uri);
 
         String strBody = null;
 
         ResponseEntity<String> respString = restTemplate.getForEntity(uri, String.class);
-        if (respString.getStatusCodeValue() == 200) {
+        if (respString.getStatusCode().is2xxSuccessful()) {
             strBody = respString.getBody();
         }
 

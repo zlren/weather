@@ -18,7 +18,7 @@ public class WeatherService {
     @Autowired
     private WeatherApiService weatherApiService;
 
-    private static final String WEATHER_URI = "http://wthrcdn.etouch.cn/weather_mini?";
+    public static final String WEATHER_URI = "http://wthrcdn.etouch.cn/weather_mini?";
 
     /**
      * 根据城市ID查询天气数据

@@ -1,11 +1,14 @@
 package lab.zlren.weather.basic.config.cache;
 
-import org.springframework.boot.autoconfigure.cache.CacheManagerCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.cache.RedisCacheWriter;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,15 +33,18 @@ public class CacheConfig {
      * @return cacheManager
      */
     @Bean
-    public CacheManagerCustomizer<RedisCacheManager> cacheManagerCustomizer() {
-        return cacheManager -> {
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory factory) {
 
-            // 设置默认过期时间为60秒
-            cacheManager.setDefaultExpiration(60);
+        RedisCacheWriter cacheWriter = RedisCacheWriter.lockingRedisCacheWriter(factory);
 
-            Map<String, Long> expires = new HashMap<>(1);
-            expires.put("weather", WEATHER_TIME_OUT);
-            cacheManager.setExpires(expires);
-        };
+        // 默认60秒失效
+        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig();
+        cacheConfig = cacheConfig.entryTtl(Duration.ofSeconds(60));
+
+        // 为weather设置60秒失效
+        Map<String, RedisCacheConfiguration> initialCacheConfigurations = new HashMap<>(1);
+        initialCacheConfigurations.put("weather", cacheConfig.entryTtl(Duration.ofSeconds(WEATHER_TIME_OUT)));
+
+        return new RedisCacheManager(cacheWriter, cacheConfig, initialCacheConfigurations);
     }
 }
