@@ -1,2 +1,6 @@
-server:
-  port:
+spring:
+  redis:
+    host: 10.109.246.68
+    port: 6379
+  cache:
+    type: redis

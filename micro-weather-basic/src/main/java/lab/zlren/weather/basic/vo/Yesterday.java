@@ -2,6 +2,8 @@ package lab.zlren.weather.basic.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 昨日天气
  *
@@ -9,7 +11,7 @@ import lombok.Data;
  * @date 2018-01-29
  */
 @Data
-public class Yesterday {
+public class Yesterday implements Serializable {
 
     /**
      * 日期

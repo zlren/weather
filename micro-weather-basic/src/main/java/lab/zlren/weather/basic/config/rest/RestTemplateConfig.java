@@ -1,4 +1,4 @@
-package lab.zlren.weather.basic.config;
+package lab.zlren.weather.basic.config.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;

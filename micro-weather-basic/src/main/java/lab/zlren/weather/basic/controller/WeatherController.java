@@ -1,7 +1,7 @@
 package lab.zlren.weather.basic.controller;
 
 import lab.zlren.weather.basic.vo.WeatherResponse;
-import lab.zlren.weather.basic.service.WeatherDataService;
+import lab.zlren.weather.basic.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WeatherController {
 
     @Autowired
-    private WeatherDataService weatherDataService;
+    private WeatherService weatherService;
 
     /**
      * 根据城市id查询天气数据
@@ -29,7 +29,7 @@ public class WeatherController {
      */
     @GetMapping("/cityId/{cityId}")
     public WeatherResponse getWeatherByCityId(@PathVariable String cityId) {
-        return weatherDataService.getDataByCityId(cityId);
+        return weatherService.getDataByCityId(cityId);
     }
 
     /**
@@ -40,6 +40,6 @@ public class WeatherController {
      */
     @GetMapping("/cityName/{cityName}")
     public WeatherResponse getWeatherByCityName(@PathVariable String cityName) {
-        return weatherDataService.getDataByCityName(cityName);
+        return weatherService.getDataByCityName(cityName);
     }
 }
