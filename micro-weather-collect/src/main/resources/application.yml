@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: 10.109.246.68
+  cache:
+    type: redis

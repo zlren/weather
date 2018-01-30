@@ -1,2 +1,6 @@
 rootProject.name = 'weather'
-include 'micro-weather-basic'
+include 'micro-weather-collect'
+include 'micro-weather-api'
+include 'micro-weather-report'
+include 'micro-weather-city'
+
