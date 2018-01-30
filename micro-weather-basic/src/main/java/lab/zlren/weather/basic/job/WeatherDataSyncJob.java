@@ -31,6 +31,9 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
         log.info("任务同步开始");
 
+
+        // TODO 为什么每次启动都会去同步，上次的缓存如果没有失效呢？？
+
         try {
             for (City city : cityList.getCityList()) {
                 log.info("正在同步天气数据，城市：{}", city.getCityName());

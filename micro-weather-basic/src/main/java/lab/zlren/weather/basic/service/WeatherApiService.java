@@ -27,16 +27,18 @@ public class WeatherApiService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    public static final String WEATHER = "weather";
+
     /**
      * 使用RestTemplate从天气API接口获取数据
      *
      * @param uri WEATHER_URI
      * @return 天气数据
      */
-    @Cacheable(value = "weather", key = "#uri", unless = "#result.status != 1000")
+    @Cacheable(value = WEATHER, key = "#uri", unless = "#result.status != 1000")
     public WeatherResponse getWeather(String uri) {
 
-        log.info("uri是：{}", uri);
+        log.info("拉取数据，uri是：{}", uri);
 
         String strBody = null;
 
