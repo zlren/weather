@@ -34,5 +34,5 @@ dependencies {
     compile('org.apache.httpcomponents:httpclient')
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-redis')
-    compile('org.springframework.boot:spring-boot-starter-quartz')
+    compile('org.springframework.boot:spring-boot-starter-quartz:2.0.0.M4')
 }
