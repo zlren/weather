@@ -3,6 +3,7 @@ buildscript {
     repositories {
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
+        maven { url 'https://repo.spring.io/libs-milestone' }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
     }
 
@@ -22,16 +23,17 @@ apply plugin: 'io.spring.dependency-management'
 
 sourceCompatibility = 1.8
 
-repositories {
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-}
-
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+repositories {
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url 'https://repo.spring.io/libs-milestone' }
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 }
 
 dependencies {

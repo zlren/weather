@@ -4,4 +4,3 @@ include 'micro-weather-report'
 include 'micro-weather-city'
 include 'micro-weather-eureka-server'
 include 'micro-weather-zuul'
-
