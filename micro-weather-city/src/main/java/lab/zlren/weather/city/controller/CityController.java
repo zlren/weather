@@ -28,6 +28,7 @@ public class CityController {
      */
     @GetMapping
     public CityList getCityList() {
+        log.info("被访问了！！");
         return cityList;
     }
 }

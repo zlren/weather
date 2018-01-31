@@ -23,6 +23,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
 
@@ -34,10 +35,4 @@ repositories {
 
 ext {
     springCloudVersion = 'Finchley.M2'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
 }

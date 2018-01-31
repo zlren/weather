@@ -1,0 +1,19 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: weather-zuul
+eureka:
+  client:
+    service-url: http://localhost:8761/eureka
+
+zuul:
+  ignored-services: '*'
+  routes:
+    city:
+      path: /city/**
+      serviceId: weather-city
+    api:
+      path: /api/**
+      serviceId: weather-collect

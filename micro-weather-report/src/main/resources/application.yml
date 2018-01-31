@@ -1,3 +1,13 @@
+server:
+  port: 8087
+
 spring:
   thymeleaf:
     cache: false # 禁用缓存，热部署静态文件
+
+spring:
+  application:
+    name: weather-report
+eureka:
+  client:
+    service-url: http://localhost:8761/eureka

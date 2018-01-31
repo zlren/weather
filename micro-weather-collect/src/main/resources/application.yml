@@ -1,5 +1,15 @@
+server:
+  port: 8081
+
 spring:
+  application:
+    name: weather-collect
   redis:
     host: 10.109.246.68
+    password: 123456
   cache:
     type: redis
+
+eureka:
+  client:
+    service-url: http://localhost:8761/eureka
