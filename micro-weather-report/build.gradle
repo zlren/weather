@@ -28,9 +28,17 @@ repositories {
     maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
     compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
 }
